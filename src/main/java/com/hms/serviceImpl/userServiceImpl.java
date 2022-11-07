@@ -1,0 +1,49 @@
+package com.hms.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hms.dto.userDTO;
+import com.hms.exception.globalException;
+import com.hms.model.user;
+import com.hms.repository.userRepository;
+import com.hms.service.userService;
+import com.hms.util.valueMapper;
+
+@Service
+public class userServiceImpl implements userService {
+
+	@Autowired
+	
+	private userRepository userrepo;
+	
+	
+	//adding user to db
+	public user addUser(userDTO u1) {
+		user u2=valueMapper.convertoUser(u1);
+		return userrepo.save(u2);
+	}
+	//retriving users from db
+	public List<user> getUser(){
+		return userrepo.findAll();
+	}
+	//update user
+	public user updateUser(userDTO u1) {
+		user u2=valueMapper.convertoUser(u1);
+		return userrepo.save(u2);
+	}
+	//delete the user
+	public String deleteUser(int userid) throws globalException
+	{
+		user u2=userrepo.findByUserId(userid);
+		if(u2!=null) {
+			userrepo.deleteById(userid);
+			return "deleted";
+		}
+		else {
+			throw new globalException("user not found");
+		}
+	}
+}
