@@ -15,6 +15,12 @@ public interface userRepository extends JpaRepository<user,Integer> {
 	@Query(value="update user set user_phone=:userphone where user_id=:userid")
 	int updatePhone(int userid,String userphone);
 	
+	@Transactional 
+	@Modifying
+	@Query(value="update user set user_room_room_id=:roomid where user_id=:userid")
+	int allotRoom(int userid,int roomid);
+	
+	
 	
 	@Query(value="select * from user where user_id=?1",nativeQuery=true)
 	user findByUserId(int userid);

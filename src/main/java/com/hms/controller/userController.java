@@ -66,6 +66,16 @@ public class userController {
 		
 	}
 	
+	@PutMapping("/allotroom/{userid}/{roomid}")
+	public ResponseEntity<String> allotRoom(@PathVariable int userid,@PathVariable int roomid) throws globalException{
+		
+		return new ResponseEntity<>(service.allotRoom(userid, roomid),HttpStatus.OK);
+		
+	}
+	
+	
+	
+	
 	
 	
 	

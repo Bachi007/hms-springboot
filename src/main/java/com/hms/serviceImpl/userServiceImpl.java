@@ -57,4 +57,14 @@ public class userServiceImpl implements userService {
 			throw new globalException("something went wrong");
 		}
 	}
+	@Override
+	public String allotRoom(int userid, int roomid) throws globalException {
+		int st=userrepo.allotRoom(userid, roomid);
+		if(st==1) {
+			return "Room Alloted to "+userid;
+		}
+		else {
+			throw new globalException("something went wrong");
+		}
+	}
 }

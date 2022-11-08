@@ -13,5 +13,5 @@ public interface userService {
 	public user updateUser(userDTO u1);
 	public String deleteUser(int userid) throws globalException;
 	public String updatePhone(int userid,String phone)throws globalException;
-		
+	public String allotRoom(int userid,int roomid)throws globalException;
 }
