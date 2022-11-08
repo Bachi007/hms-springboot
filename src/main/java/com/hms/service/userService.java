@@ -12,6 +12,6 @@ public interface userService {
 	public List<user> getUser();
 	public user updateUser(userDTO u1);
 	public String deleteUser(int userid) throws globalException;
-	
+	public String updatePhone(int userid,String phone)throws globalException;
 		
 }

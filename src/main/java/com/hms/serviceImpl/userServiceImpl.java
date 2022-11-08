@@ -46,4 +46,15 @@ public class userServiceImpl implements userService {
 			throw new globalException("user not found");
 		}
 	}
+	@Override
+	public String updatePhone(int userid, String phone) throws globalException {
+		
+		int st=userrepo.updatePhone(userid, phone);
+		if(st==1) {
+			return "updated!...";
+		}
+		else {
+			throw new globalException("something went wrong");
+		}
+	}
 }

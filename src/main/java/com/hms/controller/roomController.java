@@ -47,7 +47,7 @@ public class roomController {
 		
 	}
 	
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{roomid}")
 	public ResponseEntity<String> deleteRoom(@PathVariable int roomid) throws globalException{
 		
 		String st=service.deleteRoom(roomid);

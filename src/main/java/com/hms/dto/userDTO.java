@@ -32,6 +32,5 @@ public class userDTO {
 	@Min(1000)
 	@Max(6000)
 	private int userFee;
-	
 	private room userRoom;
 }
