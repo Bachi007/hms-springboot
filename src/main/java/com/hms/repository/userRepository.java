@@ -17,6 +17,13 @@ public interface userRepository extends JpaRepository<user,Integer> {
 	
 	@Transactional 
 	@Modifying
+	@Query(value="update user set user_fee=:userFee where user_id=:userid")
+	int updateFee(int userid,int userFee);
+	
+	
+	
+	@Transactional 
+	@Modifying
 	@Query(value="update user set user_room_room_id=:roomid where user_id=:userid")
 	int allotRoom(int userid,int roomid);
 	
@@ -24,6 +31,9 @@ public interface userRepository extends JpaRepository<user,Integer> {
 	
 	@Query(value="select * from user where user_id=?1",nativeQuery=true)
 	user findByUserId(int userid);
+
+	@Query(value="select * from user where user_name=?1",nativeQuery=true)
+	user findByUserName(String username);
 	
 	
 }
